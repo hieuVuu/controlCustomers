@@ -1,0 +1,14 @@
+body {
+}
+.btn {
+    background-color:#019160;
+    border-radius: 5px;
+    height:40px;
+    text-align:center;
+    cursor: pointer;
+    outline:none;
+    border:none;
+}
+.btn:hover {
+    background-color:#01B075;
+}

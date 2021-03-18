@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/layout/menu.css" />
+    <link rel="stylesheet" href="../css/page/customer.css" />
+    <link rel="stylesheet" href="../css/layout/content.css" />
+    <link rel="stylesheet" href="../css/layout/header.css" />
+    <link rel="stylesheet" href="../css/page/common.css" />
+    <link rel="stylesheet" href="../css/page/modal.css" />
+    <link rel="stylesheet" href="../css/components/button.css" />
+    <link rel="stylesheet" href="../css/components/table.css" />
+</head>
+<body>
+    <div id="container">
+        <div id="menu">
+            <div class="menu-header">
+                <div id="icon" class="bg-contain cursor-pointer"></div>
+                <div id="logo" class="bg-contain cursor-pointer"></div>
+            </div>
+            <div class="menu-body">
+                <div class="menu-items">
+                    <div class="menu-icon"><img src="../content/icon/dashboard.png" /></div>
+                    <div class="menu-items-title">Tổng quan</div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-icon"><img src="../content/icon/report.png" /></div>
+                    <div class="menu-items-title">Báo cáo</div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-icon"><img src="../content/icon/dashboard.png" /></div>
+                    <div class="menu-items-title">Mua hàng</div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-icon"><img src="../content/icon/dic-employee.png" /></div>
+                    <div class="menu-items-title">Danh mục khách hàng</div>
+                </div>
+                <div class="menu-items">
+                    <div class="menu-icon"><img src="../content/icon/setting.png" /></div>
+                    <div class="menu-items-title">Thiết lập hệ thống</div>
+                </div>
+            </div>
+        </div>
+        <div id="main">
+            <div id="header">
+                <div class="header-title">Nhà hàng Biển Đông</div>
+                <div id="dropdown-option" class="bg-contain cursor-pointer"></div>
+                <div class="header-account center">
+                    <div id="avatar" class="bg-contain cursor-pointer"></div>
+                    <div id="user-name">Vũ Chí Hiếu</div>
+                    <div id="user-option" class="bg-contain cursor-pointer"></div>
+                </div>
+            </div>
+            <div id="content">
+                <div class="content-header">
+                    <div class="content-title">Danh sách khách hàng</div>
+                    <div id="addCustomer" class="content-action">
+                        <button class="btn cursor-pointer">
+                            <span class="add">
+                                <img src="../content/icon/add.png" width="16" height="16" alt="">
+                                <span>Thêm khách hàng</span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="content-filter">
+                    <div class="input">
+                        <img src="../content/icon/search.png" width="16" height="16"/>
+                        <input placeholder="Tìm kiếm theo Mã Tên Khách Hàng"/>
+                    </div>
+                    <div id="btn-refresh" class="btn-refresh bg-contain cursor-pointer">
+                    </div>
+                </div>
+                <div class="content-body" id="style-2">
+                    <table id="customers" class="table-customer" width="97%" border="0">
+                        <thead>
+                            <tr>
+                                <th>Mã khách hàng</th>
+                                <th>Họ và tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Nhóm khách hàng</th>
+                                <th>Điện thoại</th>
+                                <th>Email</th>
+                                <th>Số nợ</th>
+                                <th>Địa chỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="content-footer center">
+                    <div class="all center">
+                        <div class="text1">Hiển thị</div>
+                        <div class="handlePage ">
+                            <img src="../content/icon/btn-firstpage.svg" />
+                            <img src="../content/icon/btn-prev-page.svg" />
+                         
+                            <img src="../content/icon/btn-next-page.svg" />
+                            <img src="../content/icon/btn-lastpage.svg" />
+                        </div>
+                        <div class="text2">Khách hàng/trang</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="title">THÔNG TIN KHÁCH HÀNG</div>
+                    <span id="close-modal" class="cursor-pointer"><img src="../../content/icon/x.svg" /></span>
+                </div>
+                <div class="modal-body">
+                    <div class="flex-grow">
+                        <div id="image-ava"class="cursor-pointer" >
+                            <img src="../../content/img/default-avatar.jpg" width="140" height="140" />
+                            <div>Vui lòng chọn ảnh có định dạng .jpg .jpeg .png .gif</div>
+                        </div>
+                        <div class="info1 ">
+                            <div class="input-wrapper">
+                                <div>Mã khách hàng(*)</div>
+                                <input id="codeGuest" />
+                            </div>
+                            <div class="input-wrapper">
+                                <div>Mã thẻ thành viên</div>
+                                <input id="codeMember" />
+                            </div>
+                            <div class="input-wrapper">
+                                <div>Ngày sinh</div>
+                                <input id="Gender" style="text-align:center;" type="date" />
+                            </div>
+                        </div>
+                        <div class="info2 ">
+                            <div class="input-wrapper">
+                                <div>Họ và tên(*)</div>
+                                <input id="guestName" />
+                            </div>
+                            <div class="input-wrapper">
+                                <div>Nhóm khách hàng</div>
+                                <input id="codeGroup" />
+                            </div>
+                            <div class="input-wrapper">
+                                <div>Giới tính</div>
+                                <div class="radio">
+                                    <input type="radio" id="male" name="gender">
+                                    <label for="male">Nam</label><br>
+                                    <input type="radio" id="female" name="gender">
+                                    <label for="female">Nữ</label><br>
+                                    <input type="radio" id="other" name="gender">
+                                    <label for="other">Khác</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="infor-More">
+                        <div class="flex">
+                            <div class="email">
+                                <div>Email</div>
+                                <input id="email"  />
+                            </div>
+                            <div class="phone">
+                                <div>Số điện thoại(*)</div>
+                                <input id="phoneNumber" />
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="name-company">
+                                <div>Tên công ty</div>
+                                <input id="companyName"  />
+                            </div>
+                            <div class="masothue">
+                                <div>Mã số thuế</div>
+                                <input id="codeCompany" />
+                            </div>
+                        </div>
+                        <div class="input-wrapper3">
+                            <div>Địa chỉ</div>
+                            <input id="address" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel" class="btn cursor-pointer">Hủy</button>
+                    <button id="saveInfo" class="btn cursor-pointer">
+                        <span><img src="../../content/icon/document-online.png" height="16" width="16" /></span>
+                        <span>Lưu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="../lib/jquery-3.6.0.min.js" ></script>
+    <script src="../js/customer.js"></script>
+    
+</body>
+</html>

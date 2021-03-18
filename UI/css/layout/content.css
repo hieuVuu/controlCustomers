@@ -1,0 +1,101 @@
+body {
+}
+#main {
+width: calc(100vw - 201px);
+height: 100vh;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#content {
+    width:100%;
+}
+#content .content-header {
+    height: 60px;
+    display:flex;
+    position:relative;
+    align-items:center;
+}
+#content .content-header .content-title {
+    font-weight:bold;
+    margin-left:10px;
+    font-size:18px;
+}
+.content-action {
+    position: absolute;
+    right: 16px;
+}
+.content-header button img {
+    margin-right:8px;
+}
+.content-header button {
+    color: white;
+    border-radius: 5px;
+    height: 36px;
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+}
+.content-header button .add {
+    display:flex;
+    align-items:center;
+}
+.content-filter {
+    height: 45px;
+    display: flex;
+}
+.content-filter .input {
+    width: 220px;
+    position: relative;
+    margin-left: 11px;
+    height:40px;
+    border: 1px solid #DBDEFF;
+    border-radius:5px;
+}
+.content-filter .input img {
+    margin: 10px 4px 10px 10px;
+}
+.content-filter .input input {
+    position:absolute;
+    border:none;
+    height: 34px;
+    outline: none;
+    width: 180px;
+}
+.content-filter .input:focus-within {
+    border: 1px solid #019160;
+}
+.content-filter .btn-refresh {
+    background-image:url(../../content/icon/refresh.png);
+    position:absolute;
+    right:16px;
+    border: 1px solid #DBDEFF;
+    width:60px;
+    height: 40px;
+    border-radius: 5px;
+    background-size: 20px;
+    background-position:center;
+}
+.content-body {
+    position:relative;
+    overflow-y: scroll;
+    height: calc(100vh - 221px);
+}
+.content-footer {
+    height: 55px;
+}
+.content-footer .all {
+    height: 50px;
+    border-top: 5px solid #808080;
+    font-weight:bold;
+    width: 1100px;
+}   
+.content-footer .handlePage {
+    flex-grow:1;
+    text-align:center;
+}
+.content-footer .handlePage img {
+    cursor:pointer;
+}

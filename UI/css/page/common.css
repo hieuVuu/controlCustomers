@@ -1,0 +1,10 @@
+body {
+    font-size:13px;
+}
+.bg-contain {
+     background-repeat:no-repeat;
+     background-size: contain;
+}
+.cursor-pointer {
+    cursor: pointer;
+}   

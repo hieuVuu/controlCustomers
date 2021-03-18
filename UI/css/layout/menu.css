@@ -1,0 +1,42 @@
+body {
+    
+}
+#menu {
+    width: 200px;
+    border-right: 1px solid #dedede;
+    height: 100vh;
+}
+.menu-header {
+    display:flex;
+    align-items:center;
+    width: 200px;
+    height:60px;
+}
+#logo {
+    background-image:url("../../content/img/cukcuk-logo.png");
+    width: 100px;
+    height: 30px;
+    margin-left: 6px;
+}
+#icon {
+    background-image:url("../../content/img/toggle.png");
+    width: 24px;
+    height: 24px;
+    margin-left: 24px;
+}
+#menu .menu-items {
+    display: flex;
+    align-items:center;
+    height:40px;
+    cursor:pointer;
+}
+#menu .menu-icon img {
+    margin: 10px 20px;
+    width:20px;
+    height:20px;
+    display:block;
+}
+#menu .menu-icon {
+    width:52px;
+    height:44px;
+}

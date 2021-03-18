@@ -1,0 +1,40 @@
+body {
+}
+#header {
+    height: 60px;
+    border-bottom: 1px solid #dedede;
+    /* width: calc(100vw - 201px); */
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+#header #avatar {
+    background-image:url("../../content/icon/avatar-default.png");
+    width: 30px;
+    height: 30px;
+}
+#header #user-option {
+    background-image: url(../../content/icon/option.png);
+    width: 20px;
+    height: 20px;
+    margin-left:16px;
+}
+#header #user-name {
+    margin-left: 16px;
+    font-weight: bold;
+}
+#header #dropdown-option {
+    background-image:url(../../content/icon/btn-next-page.svg);
+    width: 20px;
+    height: 20px;
+    margin-left:10px;
+    transform: rotate(90deg);
+}
+#header .header-account {
+    position: absolute;
+    right: 16px;
+}
+#header .header-title {
+    padding-left: 16px;
+    font-weight: 600;
+}
