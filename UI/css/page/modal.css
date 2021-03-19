@@ -44,12 +44,13 @@
 #modal .modal-footer button {
     border:none;
     height:40px;
-    width:100px;
+    width: 80px;
     margin-right:20px;
     font-weight:bold;
-    text-align:center;  
+    text-align:center;
 }
 #cancel {
+    width: 80px;
     background-color:#ebebeb;
 }
 #saveInfo {

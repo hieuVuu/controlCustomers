@@ -18,6 +18,12 @@
 .table-customer th:first-child, th:last-child, td:first-child, td:last-child {
     padding-left:16px;
 }
+.table-customer th:last-child, td:last-child {
+    width:40px;
+}
+#customers > tbody {
+    cursor:pointer;
+}
 #style-2::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;

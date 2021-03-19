@@ -1,12 +1,13 @@
 ﻿$(document).ready(function () {
-     loadData();
+    loadData();
 });
- // load dữ liệu khách hàng
-function loadData() { 
+// load dữ liệu khách hàng
+function loadData() {
     var data = getData()
     buildDataTableHTML(data);
+    toggleModal();
 }
- //hàm thực hiện lấy dữ liệu
+//hàm thực hiện lấy dữ liệu
 function getData() {
     var customers = null;
     $.ajax({
@@ -15,7 +16,7 @@ function getData() {
         data: null,
         async: false,
         contentType: 'application/json'
-    }).done((response) => {     
+    }).done((response) => {
         customers = response
     }).fail((response) => {
         alert("Không thể lấy dữ liệu từ API")
@@ -26,12 +27,9 @@ function getData() {
 function buildDataTableHTML(data) {
     $('table#customers tbody').html('');
     $.each(data, function (index, customer) {
-        // formatGender
-        if (!customer.Gender) {
-            return customer.GenderName="Khác";
-        }
-        var dateOfBirth = customer.DateOfBirth;
+
         //formatDate
+        var dateOfBirth = customer.DateOfBirth;
         const formatDateDDMMYYYY = (date) => {
             if (!date) {
                 return date = "";
@@ -49,17 +47,33 @@ function buildDataTableHTML(data) {
             newDate = `${dayStr}/${monthStr}/${yearStr}`
             return newDate;
         }
+
+        // format money
+        var numberTest = 12831229808;
+        const formatMoney = (money) => {
+            var moneyResult = new Intl.NumberFormat('vi-VN',
+                {
+                    style: 'currency',
+                    currency: 'VND'
+                }
+            ).format(money)
+            return moneyResult;
+        }
+        // du lieu format
+        const moneyFormated = formatMoney(numberTest);
         const dateFormated = formatDateDDMMYYYY(dateOfBirth);
+        var gender = (!customer.Gender) ? "Khác" : (customer.Gender === 1) ? "Nam" : "Nữ";
+
         var trHTML = `<tr>
                             <td>${customer.CustomerCode}</td>
                             <td>${customer.FullName}</td>
-                            <td>${customer.GenderName}</td>
+                            <td>${gender}</td>
                             <td>${dateFormated}</td>
                             <td>${customer.CustomerGroupName}</td>
                             <td>${customer.PhoneNumber}</td>
                             <td>${customer.Email}</td>
-                            <td>${customer.Gender}</td>
-                            <td>${customer.Address}</td>
+                            <td>${moneyFormated}</td>
+                            <td><input type="checkbox" checked></td>
 
                         </tr>`;
         $(`table#customers tbody`).append(trHTML);
@@ -68,43 +82,72 @@ function buildDataTableHTML(data) {
 
 // toggleModal
 function toggleModal() {
-    var modal = document.getElementById("modal");
-    var closeModal = document.getElementById("close-modal");
-    var openModal = document.getElementById("addCustomer");
-    openModal.addEventListener("click", (event) => {
-        event.preventDefault();
-        modal.style.display = "block";
+    var modal = $('#modal')
+    var openModal = $("#addCustomer");
+    openModal.on('click', (event) => {
+        event.preventDefault;
+        modal.css('display', 'block');
     })
-    closeModal.addEventListener("click", (event) => {
-        event.preventDefault();
-        modal.style.display ="none";
+    var closeModal = $("#close-modal, #cancel");
+    closeModal.on('click', (event) => {
+        event.preventDefault;
+        modal.css('display', 'none');
     })
 }
-toggleModal();
+
 
 // save info customer 
 $(document).on('click', '#saveInfo', function (event) {
     event.preventDefault();
     var allInputInModal = $('#modal input');
     var infoGuest = [];
-    allInputInModal.each((index, input) => {    
-        var inputSelect = $(`#${input.id}`);
-        infoGuest.push(inputSelect.val());
-    })
-    console.log(infoGuest);
-    console.log(infoGuest[6].checked === true);
 
-/*    // goi service de luu lai 
+    allInputInModal.each((index, input) => {
+        if (input.type === "radio" && input.checked === true) {
+            infoGuest.push(input.id);
+        }
+        else if (input.name != "gender") {
+            var dataInput = $(`#${input.id}`).val()
+            infoGuest.push(dataInput);
+        }
+    })
+    var dataCustomer = {
+        "CustomerId": "e8b61e77-85fa-11eb-a896-42010a8c0002",
+        "CustomerCode": `${infoGuest[0]}`,
+        "FullName": `${infoGuest[3]}`,
+        "Gender": null,
+        "Address": `${infoGuest[10]}`,
+        "DateOfBirth": `${infoGuest[2]}`,
+        "Email": `${infoGuest[6]}`,
+        "PhoneNumber": `${infoGuest[7]}`,
+        "CustomerGroupId": "0cb5da7c-59cd-4953-b17e-c9adc9161663",
+        "DebitAmount": null,
+        "MemberCardCode": `${infoGuest[1]}`,
+        "CompanyName": `${infoGuest[8]}`,
+        "CompanyTaxCode": `${infoGuest[9]}`,
+        "IsStopFollow": false,
+        "CustomerGroupName": `${infoGuest[4]}`,
+        "GenderName": `${infoGuest[5]}`,
+        "MISAEntityState": 0
+    };
+
+    // goi service de luu lai 
     $.ajax({
-        method: 'POST',
+        method: 'post',
         url: "http://api.manhnv.net/api/customers",
-        data: JSON.stringify(newCustomer),
+        data: JSON.stringify({"name": "hello world"}),
         async: false,
-        contentType: 'application/json'
+        contenttype: 'application/json'
     }).done(function (res) {
         alert(res);
-    }).fail(function () {
+    }).fail(function (res) {
+        console.log(res);
         alert("fail to load data");
-    });*/
+    });
 })
 
+//// sua thong tin khach hang
+//const updateData = () => {
+//    
+//}
+//updateData();
