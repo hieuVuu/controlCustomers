@@ -111,13 +111,14 @@ $(document).on('click', '#saveInfo', function (event) {
             infoGuest.push(dataInput);
         }
     })
+    const gender = (`${infoGuest[5]}` === 'male') ? 1 : (`${infoGuest[5]}` === 'female') ? 0 : null;
     var dataCustomer = {
-        "CustomerId": "e8b61e77-85fa-11eb-a896-42010a8c0002",
+        "CustomerId": "af6cf153-7bdc-11eb-a896-42010a8c0002",
         "CustomerCode": `${infoGuest[0]}`,
         "FullName": `${infoGuest[3]}`,
-        "Gender": null,
+        "Gender": `${gender}`,
         "Address": `${infoGuest[10]}`,
-        "DateOfBirth": `${infoGuest[2]}`,
+        "DateOfBirth": `${infoGuest[2] + "T00:00:00"}`,
         "Email": `${infoGuest[6]}`,
         "PhoneNumber": `${infoGuest[7]}`,
         "CustomerGroupId": "0cb5da7c-59cd-4953-b17e-c9adc9161663",
@@ -130,24 +131,23 @@ $(document).on('click', '#saveInfo', function (event) {
         "GenderName": `${infoGuest[5]}`,
         "MISAEntityState": 0
     };
-
+    
     // goi service de luu lai 
     $.ajax({
-        method: 'post',
+        method: 'POST',
         url: "http://api.manhnv.net/api/customers",
-        data: JSON.stringify({"name": "hello world"}),
+        data: JSON.stringify(dataCustomer),
         async: false,
-        contenttype: 'application/json'
+        contentType: 'application/json'
     }).done(function (res) {
-        alert(res);
+        alert("Add customer successful!");
     }).fail(function (res) {
-        console.log(res);
-        alert("fail to load data");
+        alert("fail to up data");
     });
 })
 
-//// sua thong tin khach hang
-//const updateData = () => {
-//    
-//}
-//updateData();
+// sua thong tin khach hang
+/*const updateData = () => {
+    console.log("hello world");
+}
+updateData();*/
